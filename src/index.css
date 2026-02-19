@@ -8,3 +8,10 @@
     --color-danger: #D93030;
     --color-warning: #F88237;
 }
+
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 1.1em !important;
+}
