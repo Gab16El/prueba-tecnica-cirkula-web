@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { X, CheckCircle, AlertCircle, ImageIcon } from 'lucide-react';
 import Swal from 'sweetalert2';
 
@@ -61,6 +61,13 @@ export const ImageUpload = ({
         setPreview(null);
         if (inputRef.current) inputRef.current.value = '';
     };
+
+
+    useEffect(() => {
+        if (!value) {
+            setPreview(null);
+        }
+    }, [value]);
 
     return (
         <div className="w-full">
