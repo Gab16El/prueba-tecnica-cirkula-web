@@ -38,12 +38,12 @@ export const StorePage = () => {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-2 md:p-6 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold text-gray-800 mb-6">Gestión de Tiendas</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="p-4 border-b border-gray-100">
+          <div className="p-2 md:p-4 border-b border-gray-100">
             <h2 className="text-lg font-semibold text-gray-700">Tiendas registradas</h2>
           </div>
           <div className="divide-y divide-gray-100">
@@ -65,7 +65,7 @@ export const StorePage = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-2 md:p-6">
           <h2 className="text-lg font-semibold text-gray-700 mb-4">Nueva Tienda</h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-2">
 
@@ -79,7 +79,7 @@ export const StorePage = () => {
               spaceBottom="mb-0"
             />
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <InputCard
                 name="openTime"
                 label="Hora de apertura"
@@ -112,7 +112,7 @@ export const StorePage = () => {
                   {markerPos && <Marker position={markerPos} />}
                 </MapContainer>
               </div>
-              <div className="grid grid-cols-2 gap-2 mt-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
                 <InputCard
                   name="latitude"
                   label="Latitud"
