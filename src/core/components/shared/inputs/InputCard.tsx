@@ -68,7 +68,7 @@ export const InputCard = ({
             ${Icon ? 'pl-10 pr-4' : 'px-4'}
             ${error
               ? 'border-red-500 focus:ring-red-200 focus:border-red-500'
-              : 'border-gray-300 focus:ring-whale-500 focus:border-transparent'
+              : 'border-gray-300 focus:ring-primary focus:border-transparent'
             }
           `}
           {...props}

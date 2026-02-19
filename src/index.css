@@ -4,11 +4,9 @@
 @theme {
   --color-primary: #008F90;
   --color-secondary: #EB5C5F;
-
   --color-danger: #D93030;
   --color-warning: #F88237;
 }
-
 
 html {
   -ms-text-size-adjust: 100%;
@@ -16,90 +14,84 @@ html {
   font-size: 1.1em !important;
 }
 
-.baseButtonStyle {
-  @apply font-medium px-5 py-2.5 rounded-lg focus:outline-none focus:ring-4 transition-colors duration-200;
-}
+@layer components {
+  .baseButtonStyle {
+    @apply font-medium px-5 py-2.5 rounded-lg focus:outline-none focus:ring-4 transition-colors duration-200;
+  }
 
-.buttonSolid {
-  @apply bg-primary text-white hover:bg-white border focus:ring-primary/60 border-primary hover:text-primary disabled:bg-primary/40;
-}
+  .buttonSolid {
+    @apply bg-primary text-white hover:bg-white border focus:ring-primary/60 border-primary hover:text-primary disabled:bg-primary/40;
+  }
 
-.buttonGhost {
-  @apply bg-transparent text-primary hover:bg-black/5 focus:ring-primary/60 dark:text-gray-300 dark:hover:bg-white/10;
-}
+  .buttonGhost {
+    @apply bg-transparent text-primary hover:bg-black/5 focus:ring-primary/60 dark:text-gray-300 dark:hover:bg-white/10;
+  }
 
-.buttonOutline {
-  @apply border border-primary text-primary focus:ring-primary/60 hover:bg-primary hover:text-white;
-}
+  .buttonOutline {
+    @apply border border-primary text-primary focus:ring-primary/60 hover:bg-primary hover:text-white;
+  }
 
-.buttonSoft {
-  @apply bg-primary/10 text-primary focus:ring-primary/60 hover:bg-primary/20;
-}
+  .buttonSoft {
+    @apply bg-primary/10 text-primary focus:ring-primary/60 hover:bg-primary/20;
+  }
 
-.buttonDanger {
-  @apply bg-red-700 text-white hover:bg-red-500 disabled:bg-red-400/60
-}
+  .buttonDanger {
+    @apply bg-red-700 text-white hover:bg-red-500 disabled:bg-red-400/60;
+  }
 
-.buttonSecondary {
-  @apply bg-orange-500 text-white hover:bg-white focus:ring-orange-400/60 hover:text-orange-500 border border-orange-400;
-}
+  .buttonSecondary {
+    @apply bg-orange-500 text-white hover:bg-white focus:ring-orange-400/60 hover:text-orange-500 border border-orange-400;
+  }
 
-.headerTextStyle {
-  @apply text-black dark:text-white;
-}
+  .headerTextStyle {
+    @apply text-black dark:text-white;
+  }
 
-.iconStyle {
-  @apply text-primary hover:text-primary/80 dark:hover:text-white dark:text-primary cursor-pointer;
-}
+  .iconStyle {
+    @apply text-primary hover:text-primary/80 dark:hover:text-white dark:text-primary cursor-pointer;
+  }
 
-.labelInputDefault {
-  @apply block mb-2 text-[10px] md:text-sm font-medium text-primary dark:text-white;
-}
+  .labelInputDefault {
+    @apply block mb-2 text-[10px] md:text-sm font-medium text-primary dark:text-white;
+  }
 
-.inputFieldLogin {
-  @apply bg-gray-200 text-primary text-xs md:text-sm rounded-lg border border-gray-400 dark:border-whale-500/30 block w-full p-2.5 pr-10 focus:outline-none focus:ring-1 focus:ring-secondary/30 dark:bg-whale-500/30 dark:text-white;
-}
+  .inputFieldLogin {
+    @apply bg-gray-200 text-primary text-xs md:text-sm rounded-lg border border-gray-400 block w-full p-2.5 pr-10 focus:outline-none focus:ring-1 focus:ring-secondary/30 dark:bg-white/10 dark:text-white;
+  }
 
-.borderError {
-  @apply border-red-500 focus:ring-red-400/70;
-}
+  .borderError {
+    @apply border-red-500 focus:ring-red-400/70;
+  }
 
-.borderDefault {
-  @apply border-gray-400 dark:border-gray-500/50 focus:ring-blue-400/70;
-}
+  .borderDefault {
+    @apply border-gray-400 dark:border-gray-500/50 focus:ring-blue-400/70;
+  }
 
-.inputFloating {
-  @apply block px-2.5 pb-2.5 pt-4 w-full dark:bg-whale-500/30 text-sm font-semibold text-gray-900 bg-transparent rounded-lg appearance-none dark:text-white dark:border-gray-500/50 focus:outline-none focus:ring-2 transition-all;
-}
+  .inputFloating {
+    @apply block px-2.5 pb-2.5 pt-4 w-full dark:bg-white/10 text-sm font-semibold text-gray-900 bg-transparent rounded-lg appearance-none dark:text-white focus:outline-none focus:ring-2 transition-all;
+  }
 
-.labelFloating {
-  @apply absolute text-sm text-gray-500 dark:text-primary duration-300 pointer-events-none transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-transparent px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1
-}
+  .labelFloating {
+    @apply absolute text-sm text-gray-500 dark:text-primary duration-300 pointer-events-none transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-transparent px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1;
+  }
 
-.inputFloating:invalid {
-  @apply border-red-500 bg-red-50 dark:bg-red-900/20;
-}
+  .navigationDesingDefault {
+    @apply bg-primary border-r py-4;
+  }
 
-.labelFloating:invalid {
-  @apply text-red-500
-}
+  .cardStyle {
+    @apply bg-white border border-gray-300 dark:border-primary rounded-lg shadow-md;
+  }
 
-.navigationDesingDefault {
-  @apply bg-primary border-r border-whale-500 py-4;
-}
+  .twoOrMoreInputs {
+    @apply flex flex-col md:flex-row items-center gap-4;
+  }
 
-.cardStyle {
-  @apply bg-white border border-gray-300 dark:border-primary rounded-lg shadow-md;
-}
+  .activeTabAdmin {
+    @apply bg-primary text-white;
+  }
 
-.twoOrMoreInputs {
-  @apply flex flex-col md:flex-row items-center gap-4;
-}
-
-.activeTabAdmin {
-  @apply bg-primary text-white;
-}
-
-.defaultTabAdmin {
-  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+  .defaultTabAdmin {
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+  }
 }
