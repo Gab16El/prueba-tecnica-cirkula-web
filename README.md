@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# Cirkula Web - Prueba Técnica Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Panel de administración desarrollado en React 19 con TypeScript para gestionar tiendas a través de la API REST de Cirkula.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías
 
-## React Compiler
+- **React 19** con TypeScript
+- **Vite 7** como bundler
+- **TailwindCSS 4** para estilos
+- **TanStack Query 5** para manejo de estado del servidor
+- **React Router 7** para navegación
+- **Axios** para peticiones HTTP
+- **React Leaflet** para mapas interactivos
+- **React Hot Toast** para notificaciones
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Requisitos previos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18 o superior
+- Yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Configuración
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/tu-usuario/cirkula-web.git
+cd cirkula-web
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instalar dependencias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn install
 ```
+
+### 3. Configurar variables de entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+
+```env
+VITE_API_URL=https://prueba-tecnica-cirkula-backend-production.up.railway.app/api
+```
+
+### 4. Correr el proyecto
+
+```bash
+yarn dev
+```
+
+Abre el navegador en `http://localhost:5173`
+
+---
+
+## Funcionalidades
+
+- Listado de tiendas con distancia calculada desde Miraflores, Lima
+- Creación de tiendas con subida de imagen al banner via Cloudinary
+- Mapa interactivo para seleccionar la ubicación de la tienda
+- Indicador de estado abierto/cerrado en tiempo real
+
+---
+
+## Estructura del proyecto
+
+```
+src/
+├── api/                    # Configuración de Axios
+├── config/                 # Query client de TanStack Query
+├── constants/              # Regex de validación
+├── core/
+│   ├── components/
+│   │   ├── shared/         # Componentes reutilizables (inputs, botones, navbar)
+│   │   └── skeletons/      # Loading skeletons
+│   ├── features/
+│   │   └── stores/         # Módulo de tiendas
+│   │       ├── components/ # StoreList
+│   │       ├── forms/      # Configuración del formulario
+│   │       ├── hook/       # useStoreQuery, useStoreMutation
+│   │       ├── pages/      # StorePage
+│   │       ├── services/   # store.service.ts
+│   │       └── types/      # Tipos TypeScript
+│   ├── hooks/shared/       # useForm, useFormValidation
+│   └── router/             # AppRouter, PanelRoutes
+└── helpers/                # getEnvVariables
+```
+
+---
+
+## Backend
+
+Este proyecto consume la API REST del backend de Cirkula. Puedes encontrar el repositorio en:
+[cirkula-api](https://github.com/tu-usuario/cirkula-api)
