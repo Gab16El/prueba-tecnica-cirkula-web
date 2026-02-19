@@ -21,19 +21,19 @@ html {
 }
 
 .buttonSolid {
-  @apply bg-primary text-white hover:bg-white border focus:ring-whale-300/60 border-primary hover:text-primary disabled:bg-primary/40;
+  @apply bg-primary text-white hover:bg-white border focus:ring-primary/60 border-primary hover:text-primary disabled:bg-primary/40;
 }
 
 .buttonGhost {
-  @apply bg-transparent text-primary hover:bg-black/5 focus:ring-whale-300/60 dark:text-gray-300 dark:hover:bg-white/10;
+  @apply bg-transparent text-primary hover:bg-black/5 focus:ring-primary/60 dark:text-gray-300 dark:hover:bg-white/10;
 }
 
 .buttonOutline {
-  @apply border border-primary text-primary focus:ring-whale-300/60 hover:bg-primary hover:text-white;
+  @apply border border-primary text-primary focus:ring-primary/60 hover:bg-primary hover:text-white;
 }
 
 .buttonSoft {
-  @apply bg-primary/10 text-primary focus:ring-whale-300/60 hover:bg-primary/20;
+  @apply bg-primary/10 text-primary focus:ring-primary/60 hover:bg-primary/20;
 }
 
 .buttonDanger {
@@ -49,7 +49,7 @@ html {
 }
 
 .iconStyle {
-  @apply text-primary hover:text-primary/80 dark:hover:text-white dark:text-whale-300 cursor-pointer;
+  @apply text-primary hover:text-primary/80 dark:hover:text-white dark:text-primary cursor-pointer;
 }
 
 .labelInputDefault {
@@ -73,7 +73,7 @@ html {
 }
 
 .labelFloating {
-  @apply absolute text-sm text-gray-500 dark:text-whale-300 duration-300 pointer-events-none transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-transparent px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1
+  @apply absolute text-sm text-gray-500 dark:text-primary duration-300 pointer-events-none transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-transparent px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1
 }
 
 .inputFloating:invalid {
