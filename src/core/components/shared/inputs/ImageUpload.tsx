@@ -105,7 +105,7 @@ export const ImageUpload = ({
                         </div>
                         <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
                             <CheckCircle size={12} />
-                            {(value!.size / 1024).toFixed(0)} KB
+                            {value && (value.size / 1024).toFixed(0)} KB
                         </div>
                         <button
                             type="button"

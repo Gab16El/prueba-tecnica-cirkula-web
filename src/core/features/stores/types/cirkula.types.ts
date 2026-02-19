@@ -5,6 +5,8 @@ export interface StoresList {
     latitude: number;
     longitude: number;
     openTime: string;
+    isOpen?: boolean;
+    distanceInKm: string;
     closeTime: string;
 }
 
@@ -14,7 +16,6 @@ export interface StoresResponse {
 
 export interface StoreFormValues {
     name: string;
-    bannerUrl: string;
     latitude: number;
     longitude: number;
     openTime: string;

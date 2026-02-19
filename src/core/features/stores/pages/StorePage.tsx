@@ -7,11 +7,9 @@ import { ImageUpload } from '@/core/components/shared/inputs/ImageUpload';
 import { InputCard } from '@/core/components/shared/inputs/InputCard';
 import { Button } from '@/core/components/shared/ui/Button';
 import { ListRestart, Save } from 'lucide-react';
-
-const mockStores = [
-  { id: 1, name: 'Tienda A', latitude: -12.0464, longitude: -77.0428, openTime: '09:00 AM', closeTime: '07:00 PM', bannerUrl: '', distanceInKm: 1.5, isOpen: true },
-  { id: 2, name: 'Tienda B', latitude: -12.0500, longitude: -77.0500, openTime: '10:00 AM', closeTime: '08:30 PM', bannerUrl: '', distanceInKm: 2.1, isOpen: false },
-];
+import { useCreateStoreMutation } from '../hook/useStoreMutation';
+import { StoreList } from '../components/StoreLits';
+import { useStoresQuery } from '../hook/useStoreQuery';
 
 const LocationPicker = ({ onSelect }: { onSelect: (lat: number, lng: number) => void }) => {
   useMapEvents({ click(e) { onSelect(e.latlng.lat, e.latlng.lng); } });
@@ -22,12 +20,24 @@ export const StorePage = () => {
   const { validate } = useFormValidation(storeFields);
   const [banner, setBanner] = useState<File | null>(null);
   const [markerPos, setMarkerPos] = useState<[number, number] | null>(null);
+  const { mutate: createStore, isPending: isAddingStore } = useCreateStoreMutation();
+  const { data: stores, isLoading: isLoadingStores } = useStoresQuery();
 
   const { formValues, errors, handleChange, handleSubmit, setFieldValue, resetForm } = useForm({
     initialValues: storeInitialValues,
     validate,
     onSubmit: (values) => {
-      console.log('Submit:', values, banner);
+      createStore({
+        formValues: {
+          ...values,
+          latitude: parseFloat(values.latitude),
+          longitude: parseFloat(values.longitude),
+        },
+        banner,
+      });
+      resetForm();
+      setBanner(null);
+      setMarkerPos(null);
     }
   });
 
@@ -47,21 +57,7 @@ export const StorePage = () => {
             <h2 className="text-lg font-semibold text-gray-700">Tiendas registradas</h2>
           </div>
           <div className="divide-y divide-gray-100">
-            {mockStores.map(store => (
-              <div key={store.id} className="p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                <div>
-                  <p className="font-medium text-gray-800">{store.name}</p>
-                  <p className="text-sm text-gray-500">{store.openTime} - {store.closeTime}</p>
-                  <p className="text-xs text-gray-400">{store.latitude}, {store.longitude}</p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className={`text-xs px-2 py-1 rounded-full font-medium ${store.isOpen ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                    {store.isOpen ? 'Abierto' : 'Cerrado'}
-                  </span>
-                  <span className="text-xs text-gray-500">{store.distanceInKm} km</span>
-                </div>
-              </div>
-            ))}
+            <StoreList stores={stores || []} isLoading={isLoadingStores} />
           </div>
         </div>
 
@@ -151,9 +147,11 @@ export const StorePage = () => {
                 <ListRestart size={16} />
                 Limpiar
               </Button>
-              <Button 
-                type="submit" 
-                variant="solid" 
+              <Button
+                type="submit"
+                buttonIsLoading={isAddingStore}
+                loadingText='Creando Tienda...'
+                variant="solid"
               >
                 <Save size={16} />
                 Crear Tienda
