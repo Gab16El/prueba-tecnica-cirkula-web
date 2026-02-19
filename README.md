@@ -29,7 +29,7 @@ Panel de administración desarrollado en React 19 con TypeScript para gestionar 
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/cirkula-web.git
+git clone https://github.com/Gab16El/prueba-tecnica-cirkula-web.git
 cd cirkula-web
 ```
 
@@ -95,4 +95,4 @@ src/
 ## Backend
 
 Este proyecto consume la API REST del backend de Cirkula. Puedes encontrar el repositorio en:
-[cirkula-api](https://github.com/tu-usuario/cirkula-api)
+[cirkula-api](https://github.com/Gab16El/prueba-tecnica-cirkula-backend)
