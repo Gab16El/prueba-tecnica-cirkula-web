@@ -22,7 +22,18 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "paths": {
+      "@/*": ["./src/*"],
+      "@features/*": ["./src/core/features/*"],
+      "@hooks/*": ["./src/core/hooks/*"],
+      "@store/*": ["./src/store/*"],
+      "@router/*": ["./src/router/*"],
+      "@types/*": ["./src/types/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@api/*": ["./src/api/*"]
+    }
   },
   "include": ["src"]
 }
