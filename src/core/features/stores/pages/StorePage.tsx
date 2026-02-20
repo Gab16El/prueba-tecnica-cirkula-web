@@ -1,6 +1,5 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { useState } from 'react';
-import 'leaflet/dist/leaflet.css';
 import { useForm, useFormValidation } from '@/core/hooks/shared';
 import { storeFields, storeInitialValues } from '../forms/store.form';
 import { ImageUpload } from '@/core/components/shared/inputs/ImageUpload';
