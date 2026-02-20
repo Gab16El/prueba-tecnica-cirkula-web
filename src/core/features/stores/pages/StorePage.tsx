@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 import { useForm, useFormValidation } from '@/core/hooks/shared';
@@ -10,11 +10,7 @@ import { ListRestart, Save } from 'lucide-react';
 import { useCreateStoreMutation } from '../hook/useStoreMutation';
 import { StoreList } from '../components/StoreLits';
 import { useStoresQuery } from '../hook/useStoreQuery';
-
-const LocationPicker = ({ onSelect }: { onSelect: (lat: number, lng: number) => void }) => {
-  useMapEvents({ click(e) { onSelect(e.latlng.lat, e.latlng.lng); } });
-  return null;
-};
+import { LocationPicker } from '../../map/LocationPicker';
 
 export const StorePage = () => {
   const { validate } = useFormValidation(storeFields);
